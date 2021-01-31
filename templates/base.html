@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Trip & Track</title>
+</head>
+<body>
+    <header>
+        <!-- header goes here -->
+        <h1>Trip & Track</h1>
+        <!-- <h2><img src="https://i.imgur.com/sOUgMbE.jpg" alt="Travel Photo"></h2> travel photo here <<<<-->
+        <nav>
+            <ul>
+                <li>
+                    <a href="/home">Home</a>
+                </li>
+                <li>
+                    <a href="/visit">Visit</a>
+                </li>
+                <li>
+                    <a href="/been">Been</a>
+                </li>
+                <li>
+                    <a href="/inspiration">Inspiration</a>
+                </li>
+                <!-- links o in ehre  -->
+            </ul>
+        </nav>
+    </header>
+    {% block content %}
+    {% endblock %}
+    <main>
+        <!-- main here -->
+    </main>
+    <footer>
+        <!-- fotter here -->
+        <section>
+            <h2>Site Map</h2>
+            <nav>
+              <ul>
+                <li><a href="/home">Home</a></li>
+                <li><a href="/visit">Visit</a></li>
+                <li><a href="/been">Been</a></li>
+                <li><a href="/inspiration">Inspiration</a></li>
+              </ul>
+            </nav>
+          </section>
+    </footer>
+    
+</body>
+</html>
