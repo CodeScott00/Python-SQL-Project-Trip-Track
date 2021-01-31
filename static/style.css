@@ -1,3 +1,11 @@
+h1 {
+    background-color: black;
+    color: goldenrod;
+    margin: auto;
+    height: 100;
+    font-family: fantasy;
+}
+
 nav {
     background-color: aquamarine;
     font: status-bar;
@@ -5,5 +13,37 @@ nav {
     /* text-align: right; */
     margin: 70;
     /* color: goldenrod; */
+    font-family: fantasy;
+    
     
 }
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: black;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color:goldenrod;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+  li a:hover {
+    background-color:grey;
+  }
+
+img {
+    height: 200px;
+    width: 1250px;
+}
+

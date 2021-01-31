@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2> Add Destination:</h2>
+
+<form action="/home" method="post">
+    <div>
+        <label for="country"> Country:</label>
+        <input type="text" id="country" name="country" placeholder="Country" required autofocus>
+    </div>
+    <div>
+        <label for="City"> City:</label>
+        <input type="text" id="city" name="city" placeholder="City" required autofocus>
+    </div>
+    <div>
+        <label for="Been"> Been:</label>
+        <input type="checkbox" id="Been" name="Been" placeholder="Been" required autofocus>
+        
+      </div>
+      <div>
+        <label for="Going"> Going:</label>
+        <input type="checkbox" id="Going" name="Going" placeholder="Going" required autofocus>
+        
+      </div>
+
+
+      <button type="submit"> Lets go bitches!</button>
+</form>
+
+{% endblock %}

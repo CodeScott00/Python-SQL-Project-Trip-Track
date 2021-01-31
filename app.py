@@ -1,11 +1,13 @@
 from flask import Flask, render_template
-# from controllers import travel_blueprint
-
-
-# app.register_blueprint(travel_blueprint)
-#import blueprint?
+# from controllers import controller
+from controllers.controller import travel_blueprint
 
 app = Flask(__name__)
+
+app.register_blueprint(travel_blueprint)
+#import blueprint?
+
+
 
 @app.route('/')
 def home():
