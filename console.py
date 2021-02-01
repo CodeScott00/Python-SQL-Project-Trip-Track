@@ -9,13 +9,13 @@ import repositories.destination_repository as destination_repository
 country_repository.delete_all()
 destination_repository.delete_all()
 
-# country_repository.select_all()
-# destination_repository.select_all()
+country_repository.select_all()
+destination_repository.select_all()
 
-country1 = Country('Brazil', '212 million')
+country1 = Country('Brazil', '212 million', True)
 country_repository.save(country1)
 
-country2 = Country('Australia', '25 million')
+country2 = Country('Australia', '25 million', False)
 country_repository.save(country2)
 
 

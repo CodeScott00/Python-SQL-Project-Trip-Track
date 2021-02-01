@@ -4,8 +4,8 @@ from models.country import Country
 
 
 def save(country):
-    sql = "INSERT INTO countries (country_name, country_population) VALUES (%s, %s) RETURNING *"
-    values = [country.country_name, country.country_population]
+    sql = "INSERT INTO countries (country_name, country_population, country_visited) VALUES (%s, %s, %s) RETURNING *"
+    values = [country.country_name, country.country_population, country.country_visited]
     results = run_sql(sql, values)
     id = results[0]['id']
     country.id = id
@@ -20,7 +20,7 @@ def select_all():
     results = run_sql(sql)
 
     for row in results:
-        country = Country(row['country_name'], row['country_population'], row['id'])
+        country = Country(row['country_name'], row['country_population'], row['country_visited'], row['id'])
         countries.append(country)
     return countries
 
@@ -31,7 +31,7 @@ def select(id):
     result = run_sql(sql, values)[0]
 
     if result is not None:
-        country = Country(result['country_name'], result['country_population'], result['id'])
+        country = Country(result['country_name'], result['country_population'],result['country_visited'], result['id'])
     return country 
 
 def delete_all():
@@ -44,8 +44,8 @@ def delete(id):
     run_sql(sql, values)
 
 def update(country):
-    sql = "UPDATE countries SET (country_name, country_population) = (%s, %s) WHERE id = %s"
-    values = [country.country_name, country.country_population, country.id]
+    sql = "UPDATE countries SET (country_name, country_population, country_visited) = (%s, %s, %s) WHERE id = %s"
+    values = [country.country_name, country.country_population, country.country_visited, country.id]
     run_sql(sql, values)
 
 

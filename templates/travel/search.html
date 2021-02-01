@@ -14,18 +14,20 @@
         <input type="text" id="city" name="city" placeholder="City" required autofocus>
     </div>
     <div>
-        <label for="Been"> Been:</label>
-        <input type="checkbox" id="Been" name="Been" placeholder="Been" required autofocus>
+        <label for="visited"> Visited:</label>
+        <input type="checkbox" id="visited" name="vistied" value = "True" placeholder="Been" required autofocus>
         
       </div>
-      <div>
-        <label for="Going"> Going:</label>
-        <input type="checkbox" id="Going" name="Going" placeholder="Going" required autofocus>
-        
-      </div>
-
 
       <button type="submit"> Lets go bitches!</button>
 </form>
+
+{% for country in countries %}
+
+<p>{{country.country_name}} {{country.country_population}}</p>
+
+
+
+{% endfor %}
 
 {% endblock %}

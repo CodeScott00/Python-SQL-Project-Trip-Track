@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 # from controllers import controller
 from controllers.controller import travel_blueprint
+from controllers import country_controller
 
 app = Flask(__name__)
 
