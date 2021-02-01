@@ -7,7 +7,7 @@
 <form action="/home" method="post">
     <div>
         <label for="country"> Country:</label>
-        <input type="text" id="country" name="country" placeholder="Country" required autofocus>
+        <input type="select" id="country" name="country" placeholder="Country" required autofocus>
     </div>
     <div>
         <label for="City"> City:</label>
@@ -26,7 +26,13 @@
 
 <p>{{country.country_name}} {{country.country_population}}</p>
 
+{% endfor %}
 
+
+
+{% for destination in destinations %}
+
+<p>{{destination.destination_name}} {{destination.country}}</p>
 
 {% endfor %}
 

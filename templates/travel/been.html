@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Countries VIsited:</h1>
+
+<form action="/been/new">
+<input type="submit" value="Add Country" >
+</form>
+<p>
+    {% for country in countries %}
+
+<p><b>{{country.country_name}} {{country.country_population}}</b></p>
+
+    <p>Visited? {{country.country_visited}}</p>
+    <p><a href="/been/{{country.id}}/edit">Edit</a></p>
+
+    {% endfor %}
+
+
+
+
+{% endblock %}
