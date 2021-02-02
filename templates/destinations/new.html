@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form action="/destinations" method="POST">
+    <label for="destination_name">Destination:</label>
+    <input type="text" name="destination_name">
+
+    <label for="country">Country:</label>
+    <select name="country_id" id="country_id">
+
+        {% for country in countries %}
+        <option value="{{country.id}}">{{country.country_name}}</option>
+        {% endfor %}
+
+    </select>
+
+    <input type="submit" value="save">
+</form>
+
+
+
+
+
+{% endblock %}

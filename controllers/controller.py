@@ -12,8 +12,8 @@ def new_entry():
     countries = country_repository.select_all()
     destinations = destination_repository.select_all()
 
-    return render_template('travel/search.html',title = "Home", countries = countries, destinations = destinations)
+    return render_template('search.html',title = "Home", countries = countries, destinations = destinations)
 
 @travel_blueprint.route('/inspiration', methods = ['GET'])
 def inspo():
-    return render_template("travel/inspo.html")
+    return render_template("inspo.html")

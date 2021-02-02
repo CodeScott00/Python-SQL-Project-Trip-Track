@@ -8,35 +8,54 @@ from models.country import Country
 
 country_blueprint = Blueprint("countries",__name__)
 
-@country_blueprint.route("/been")
+#index
+@country_blueprint.route("/countries")
 def show_countries():
     countries = country_repository.select_all()
-    return render_template("travel/been.html", countries = countries)
+    return render_template("countries/index.html", countries = countries)
 
-@country_blueprint.route("/been/<id>", methods = ['GET'])
+#show
+@country_blueprint.route("/countries/<id>", methods = ['GET'])
 def show_country(id):
     countries = country_repository.select(id)
-    return render_template("travel/been.html", countries = countries)
+    return render_template("countries/show.html", countries = countries)
+#TO do - have a link on countries list to show a single country
 
-
-@country_blueprint.route("/been/new")
+#new - Showing the form
+@country_blueprint.route("/countries/new")
 def add_country():
-    return render_template("travel/new.html")
+    return render_template("countries/new.html")
 
-
-
-
-@country_blueprint.route("/been", methods = ['POST'])
+#Create - where the form posts to
+@country_blueprint.route("/countries", methods = ['POST'])
 def create_country():
     country_name = request.form['country_name']
     country_population = request.form['country_population']
-    country_visited = request.form['country_visited']
+    country_visited = False
+    if hasattr(request.form, 'country_visited'):
+        country_visited = True
     country = Country(country_name, country_population, country_visited)
     country_repository.save(country)
-    return redirect ('/been')
+    return redirect('/countries')
 
+#delete attempt
+@country_blueprint.route("/countries/<id>/delete", methods = ["POST"])
+def delete_country(id):
+    country_repository.delete(id)
+    return redirect ("/countries")
 
-
+#update attempt
+@country_blueprint.route("/countries/<id>/edit", methods = ["POST"])
+def update_country(id):
+    country_name = request.form['country_name']
+    country_population = request.form['country_population']
+    country_visited = False
+    if hasattr(request.form, 'country_visited'):
+        country_visited = True
+    country = country_repository.select(id)
+    countries = Country(country_name, country_population, country_visited, id)
+    country_repository.update(countries)
+    return redirect ("/countries")
 
     
     

@@ -1,0 +1,37 @@
+{% entends base.html %}
+
+{% block content %}
+
+<form action="/countries/{{country.id}}" method="post">
+<div>
+    <label for="country_name"> Country:</label>
+    <input type="text" name="country" id="country" value = {{country.country_name}} required autofocus>
+</div>
+
+<div>
+    <label for="country_population"> population:</label>
+    <input type="text" name="population" id="population" value = {{country.country_population}} required autofocus>
+</div>
+
+
+<div>
+    <label for="country">Country:</label>
+    <select id="country" name="country_id">
+      {% for country in countries %}
+        <option value="{{ country_id }}" 
+          {% if country.country_id == country_id %} selected="selected"{% endif %}>
+          {{ country.country_name}}
+        </option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <button type="submit">Update</button>
+
+
+</form>
+
+<!-- ??????????????????????? -->
+
+
+{% endblock %}
