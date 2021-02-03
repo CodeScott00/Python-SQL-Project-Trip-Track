@@ -4,27 +4,28 @@
 
 <h2> Add Destination:</h2>
 
-<form action="/home" method="post">
-    <div>
+<form class="home_search" action="/home" method="post">
+  <div class="beaut"><div class="home_search_1">
         <label for="country"> Country:</label>
-        <input type="select" id="country" name="country" placeholder="Country" required autofocus>
+        <input class="home_search_input" type="select" id="country" name="country" placeholder="Country" required autofocus>
     </div>
-    <div>
+    <div class="home_search_1">
         <label for="City"> City:</label>
-        <input type="text" id="city" name="city" placeholder="City" required autofocus>
+        <input class="home_search_input" type="text" id="city" name="city" placeholder="City" required autofocus>
     </div>
-    <div>
+    <div class="home_search_1">
         <label for="visited"> Visited:</label>
-        <input type="checkbox" id="visited" name="vistied" value = "True" placeholder="Been" required autofocus>
+        <input class="input_check" type="checkbox" id="visited" name="visited" value = "True" placeholder="Been" required autofocus>
         
       </div>
-
+    </div>  
       <button type="submit"> Submit!</button>
 </form>
 
+
 {% for country in countries %}
 
-<p>{{country.country_name}} {{country.country_population}}</p>
+<p>{{country.country_name}} Population:{{country.country_population}}</p>
 
 {% endfor %}
 
@@ -32,8 +33,9 @@
 
 {% for destination in destinations %}
 
-<p>{{destination.destination_name}} {{destination.country}}</p>
+<p>{{destination.destination_name}} {{destination.country.country_name}}</p>
 
 {% endfor %}
 
 {% endblock %}
+

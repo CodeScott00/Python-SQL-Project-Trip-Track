@@ -4,16 +4,26 @@ h1 {
     margin: auto;
     height: 100;
     font-family: fantasy;
+    text-align: center;
+}
+
+h2 {
+  background-color: black;
+  color: goldenrod;
+  margin: auto;
+  height: 100;
+  font-family: fantasy;
+  text-align: center;
 }
 
 nav {
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
     font: status-bar;
     padding: 10;
-    /* text-align: right; */
+    text-align: right;
     margin: 70;
-    /* color: goldenrod; */
-    font-family: fantasy;
+     color: goldenrod; 
+    font-family: fantasy; 
     
     
 }
@@ -27,14 +37,18 @@ ul {
   }
   
   li {
-    float: left;
+    /* display: inline-block;
+    list-style-type: none;
+    position: center; */
+    float: center;
+    
   }
   
   li a {
     display: block;
     color:goldenrod;
     text-align: center;
-    padding: 14px 16px;
+    padding: 1px 1px;
     text-decoration: none;
   }
 
@@ -51,4 +65,64 @@ img {
 #inspo {
   width: 1250px;
   height: 600px;
+}
+
+b {
+  font-size: 40;
+}
+
+p {
+  text-align: center;
+  background-color: lightgray;
+  
+}
+
+form {
+  text-align: center;
+}
+
+.beaut {
+  float: center;
+  display: flex;
+  height: 100;
+  width: 100%;
+  /* text-align: center; */
+  justify-content: center;
+  align-items: center;
+  
+  
+  font-size: 17px;
+  /* align-items: center; */
+}
+
+.home_search_1 {
+  flex: 1;
+}
+
+.home_search_input {
+  width: 80px;
+  height: 20px;
+  border: 1px solid goldenrod;
+  border-radius: 3px;
+  
+}
+
+.home_search {
+  display: flex;
+  flex-direction: column;
+  height: 100;
+  width: 100%;
+  /* text-align: center; */
+  justify-content: center;
+  align-items: center;
+}
+
+.country {
+  border: 4px solid goldenrod;
+  padding: 12px;
+  margin: 12px;
+}
+
+.padding {
+  margin-top: 12px;
 }

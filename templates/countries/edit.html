@@ -1,37 +1,39 @@
-{% entends base.html %}
+{% extends "base.html" %}
 
 {% block content %}
 
 <form action="/countries/{{country.id}}" method="post">
 <div>
     <label for="country_name"> Country:</label>
-    <input type="text" name="country" id="country" value = {{country.country_name}} required autofocus>
+    <input type="text" name="country_name" id="country_name" value="{{country.country_name}}" required autofocus>
 </div>
 
 <div>
     <label for="country_population"> population:</label>
-    <input type="text" name="population" id="population" value = {{country.country_population}} required autofocus>
+    <input type="text" name="country_population" id="country_population" value="{{country.country_population}}" required autofocus>
+</div>
+
+<div>
+  <label for="visited"> Visited:</label>
+  <input type="checkbox" id="visited" name="visited" value="True" placeholder="Been">
+  
 </div>
 
 
-<div>
-    <label for="country">Country:</label>
-    <select id="country" name="country_id">
-      {% for country in countries %}
-        <option value="{{ country_id }}" 
-          {% if country.country_id == country_id %} selected="selected"{% endif %}>
-          {{ country.country_name}}
-        </option>
-      {% endfor %}
-    </select>
-  </div>
-
-  <button type="submit">Update</button>
-
+  <input value="save" type="submit">
 
 </form>
 
-<!-- ??????????????????????? -->
-
-
 {% endblock %}
+
+<!-- update button. here? no? -->
+
+<!-- <form class="update" action="/countries/{{country.id}}/edit" method="POST">
+    <button style="color: blue;" type="Update"> Update</button>
+</form> -->
+
+
+
+<!-- ???????????????????????WHERE????????????????? -->
+
+

@@ -1,25 +1,32 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Countries VIsited:</h1>
+<h1>Countries Visited:</h1>
 
-<form action="/countries/new">
+<form class="padding" action="/countries/new">
 <input type="submit" value="Add Country" >
 </form>
+
 <p>
     {% for country in countries %}
 
 <p><b>{{country.country_name}} {{country.country_population}}</b></p>
 
     <p>Visited? {{country.country_visited}}</p>
-    <p><a href="/countries/{{country.id}}/edit">Edit</a></p>
+   
 
-
+    <!-- <p><a href="/countries/edit">Edit</a></p> -->
+<form class="update" action="/countries/{{country.id}}/edit" method="GET">
+    <button style="color:green" type="update"> Update</button>
+</form>
+   
 
 <!-- Add button for delete here  -->
 
 <form class="delete" action="/countries/{{country.id}}/delete" method="POST">
     <button style="color:red" type="Delete"> Delete</button>
 </form>
+
+
 
 {% endfor %}
 

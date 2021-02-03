@@ -32,7 +32,7 @@ def create_country():
     country_name = request.form['country_name']
     country_population = request.form['country_population']
     country_visited = False
-    if hasattr(request.form, 'country_visited'):
+    if 'country_visited' in request.form:
         country_visited = True
     country = Country(country_name, country_population, country_visited)
     country_repository.save(country)
@@ -44,18 +44,28 @@ def delete_country(id):
     country_repository.delete(id)
     return redirect ("/countries")
 
+@country_blueprint.route("/countries/<id>/edit", methods = ["GET"])
+def country_edit(id):
+    country = country_repository.select(id)
+    return render_template('countries/edit.html', country = country)
+    
+
+
 #update attempt
-@country_blueprint.route("/countries/<id>/edit", methods = ["POST"])
+@country_blueprint.route("/countries/<id>", methods = ["POST"])
 def update_country(id):
     country_name = request.form['country_name']
     country_population = request.form['country_population']
     country_visited = False
-    if hasattr(request.form, 'country_visited'):
+    print(request.form)
+    if 'visited' in request.form:
         country_visited = True
-    country = country_repository.select(id)
-    countries = Country(country_name, country_population, country_visited, id)
-    country_repository.update(countries)
+        print(request.form)
+    country = Country(country_name, country_population, country_visited, id)
+    country_repository.update(country)
     return redirect ("/countries")
+
+
 
     
     
